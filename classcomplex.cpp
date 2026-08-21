@@ -1,27 +1,47 @@
 #include <iostream>
 using namespace std;
-class Complex {
-private:
-int real, imag;
+
+class Complex
+{
+    int real, img;
+
 public:
-Complex(int r=0,int i=0):real(r),imag(i){}
-Complex add(const Complex &c){
-return Complex(real+c.real, imag+c.imag);
-}
-Complex subtract(const Complex &c){
-return Complex(real-c.real, imag-c.imag);
-}
-void display() const{
-cout<<real<<" + i"<<imag<<endl;
-}
+    void getData()
+    {
+        cout << "Enter real part: ";
+        cin >> real;
+
+        cout << "Enter imaginary part: ";
+        cin >> img;
+    }
+
+    void add(Complex c)
+    {
+        cout << "Addition = "
+             << real + c.real
+             << " + " << img + c.img << "i" << endl;
+    }
+
+    void subtract(Complex c)
+    {
+        cout << "Subtraction = "
+             << real - c.real
+             << " + " << img - c.img << "i" << endl;
+    }
 };
-int main(){
-Complex c1(4,5), c2(8,9);
-Complex sum=c1.add(c2);
-Complex diff=c1.subtract(c2);
-cout<<"First Complex Number: "; c1.display();
-cout<<"Second Complex Number: "; c2.display();
-cout<<"Addition: "; sum.display();
-cout<<"Subtraction: "; diff.display();
-return 0;
+
+int main()
+{
+    Complex c1, c2;
+
+    cout << "Enter first complex number:\n";
+    c1.getData();
+
+    cout << "Enter second complex number:\n";
+    c2.getData();
+
+    c1.add(c2);
+    c1.subtract(c2);
+
+    return 0;
 }
